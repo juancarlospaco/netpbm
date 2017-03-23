@@ -640,7 +640,6 @@ Internally is a shortcut to `crop_x()` and `crop_y()`.
 
 
 
-
 ##### expand
 <details>
 
@@ -670,11 +669,110 @@ Internally is shortcut to `expand_x()` and `expand_y()`.
 ```python
 >>> from netpbm import ImgColor
 >>> image= ImgColor(10, 10)
->>> image.expand_y(14)
+>>> image.expand(14, 14)
 ```
 </details>
 
 
+
+##### expand_centered_x
+<details>
+
+`netpbm.ImgColor.expand_centered_x(x: int)`
+
+**Description:** Expand image centered Horizontally, grow from right-bottom, increments size.
+
+**Arguments:**
+- `x` New Width for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.expand_centered_x(14)
+```
+</details>
+
+
+
+##### expand_centered_y
+<details>
+
+`netpbm.ImgColor.expand_centered_y(y: int)`
+
+**Description:** Expand image Centered Vertically, grow from right-bottom, increments size.
+
+**Arguments:**
+- `y` New Height for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.expand_centered_y(14)
+```
+</details>
+
+
+
+##### expand_centered
+<details>
+
+`netpbm.ImgColor.expand_centered(x: int, y: int)`
+
+**Description:** Expand image Centered Horizontally and Vertically, grow from right-bottom, increments size.
+Internally is shortcut to `expand_centered_x()` and `expand_centered_y()`.
+
+**Arguments:**
+- `x` New Width for the Image, required, integer type.
+- `y` New Height for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.expand_centered(14, 14)
+```
+</details>
 
 
 
