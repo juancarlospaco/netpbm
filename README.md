@@ -14,12 +14,18 @@
 
 # Examples
 
-![Fractal](https://raw.githubusercontent.com/juancarlospaco/netpbm/master/example.jpg)
+![Procedural](https://raw.githubusercontent.com/juancarlospaco/netpbm/master/example.jpg)
+
 ![Fractal](https://raw.githubusercontent.com/juancarlospaco/netpbm/master/fractalito.jpeg)
+
 ![Fractal](https://raw.githubusercontent.com/juancarlospaco/netpbm/master/fractalito_Vicsek.jpeg)
+
 ![Fractal](https://raw.githubusercontent.com/juancarlospaco/netpbm/master/fractalito_hexaflake.jpg)
+
 ![Fractal](https://raw.githubusercontent.com/juancarlospaco/netpbm/master/fractalito_snowflake.jpeg)
+
 ![Fractal](https://raw.githubusercontent.com/juancarlospaco/netpbm/master/fractalito_spiral.jpeg)
+
 ![Fractal](https://raw.githubusercontent.com/juancarlospaco/netpbm/master/fractalito_tri.jpeg)
 
 
