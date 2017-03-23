@@ -51,12 +51,8 @@ Useful manipulation functions, Darken, Lighten, Invert, Crop, Shrink, etc."""
 # Dont touch below
 
 
-try:
-    with open(str(MODULE_PATH), "r", encoding="utf-8-sig") as source_code_file:
-        SOURCE = source_code_file.read()
-except:
-    with open(str(MODULE_PATH),  "r") as source_code_file:
-        SOURCE = source_code_file.read()
+with open(str(MODULE_PATH), "r", encoding="utf-8") as source_code_file:
+    SOURCE = source_code_file.read()
 
 
 def find_this(search, source=SOURCE):
@@ -65,8 +61,8 @@ def find_this(search, source=SOURCE):
     if not search or not source:
         print("Not found on source: {what}.".format(what=search))
         return ""
-    return str(re.compile(r".*__{what}__ = '(.*?)'".format(
-        what=search), re.S).match(source).group(1)).strip().replace("'", "")
+    return str(re.compile(r'.*__{what}__ = "(.*?)"'.format(
+        what=search), re.S).match(source).group(1)).strip()
 
 
 print("Starting build of setuptools.setup().")
@@ -95,7 +91,6 @@ setup(
     include_package_data=True,
     zip_safe=True,
 
-    packages=["netpbm"],
 
     keywords=['netpbm', 'image', 'raster', 'minimalism', 'png', 'pillow', 'bitmap'],
 
