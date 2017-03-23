@@ -95,11 +95,9 @@ setup(
     include_package_data=True,
     zip_safe=True,
 
-    tests_require=['isort', 'pylama'],
-
     packages=["netpbm"],
 
-    keywords=['netpbm', 'image', 'raster', 'minimalism', 'png', 'pillow'],
+    keywords=['netpbm', 'image', 'raster', 'minimalism', 'png', 'pillow', 'bitmap'],
 
     classifiers=[
 
@@ -107,6 +105,7 @@ setup(
 
         'Intended Audience :: Developers',
         'Intended Audience :: Other Audience',
+        'Topic :: Software Development :: Libraries',
 
         'Natural Language :: English',
 
@@ -123,6 +122,7 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
 
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
