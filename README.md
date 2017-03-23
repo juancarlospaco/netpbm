@@ -192,7 +192,7 @@ Sets Header. Returns Header.
 
 **Keyword Arguments:** None.
 
-**Returns:** A Header, one of `P1`, `P2`, `P3`, string type.
+**Returns:** A Header, one of `"P1"`, `"P2"`, `"P3"`, string type.
 
 **Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
 
@@ -218,7 +218,7 @@ Sets Header. Returns Header.
 
 `netpbm.ImgColor.get_mime_type()`
 
-**Description:** Get the mime type of the current image format as 'type/subtype'.
+**Description:** Get the mime type of the current image format as `'type/subtype'`.
 
 **Arguments:** None.
 
@@ -471,6 +471,217 @@ Internally is a shortcut to `crop_x()` and `crop_y()`.
 >>> image.crop(6, 6)
 ```
 </details>
+
+
+
+##### crop_centered_x
+<details>
+
+`netpbm.ImgColor.crop_centered_x(x: int)`
+
+**Description:** Centered Crop image Horizontally, crops from borders instead of from bottom-right, can  only reduce size.
+
+**Arguments:**
+- `x` New Width for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.crop_centered_x(6)
+```
+</details>
+
+
+
+##### crop_centered_y
+<details>
+
+`netpbm.ImgColor.crop_centered_y(y: int)`
+
+**Description:** Centered Crop image Vertically, crops from borders instead of from bottom-right, can  only reduce size.
+
+**Arguments:**
+- `y` New Height for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.crop_centered_y(6)
+```
+</details>
+
+
+
+##### crop_centered
+<details>
+
+`netpbm.ImgColor.crop_centered(x: int, y: int)`
+
+**Description:** Centered Crop image Horizontally and Vertically, crops from borders instead of from bottom-right, can  only reduce size.
+
+**Arguments:**
+- `x` New Width for the Image, required, integer type.
+- `y` New Height for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.crop_centered(6, 6)
+```
+</details>
+
+
+
+##### expand_x
+<details>
+
+`netpbm.ImgColor.expand_x(x: int)`
+
+**Description:** Expand image Horizontally, grow from right-bottom, increments size.
+
+**Arguments:**
+- `x` New Width for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.expand_x(14)
+```
+</details>
+
+
+
+##### expand_y
+<details>
+
+`netpbm.ImgColor.expand_y(y: int)`
+
+**Description:** Expand image Vertically, grow from right-bottom, increments size.
+
+**Arguments:**
+- `y` New Height for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.expand_y(14)
+```
+</details>
+
+
+
+
+##### expand
+<details>
+
+`netpbm.ImgColor.expand(x: int, y: int)`
+
+**Description:** Expand image Horizontally and Vertically, grow from right-bottom, increments size.
+Internally is shortcut to `expand_x()` and `expand_y()`.
+
+**Arguments:**
+- `x` New Width for the Image, required, integer type.
+- `y` New Height for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.expand_y(14)
+```
+</details>
+
+
+
+
+
+
+
+
+
 
 
 
