@@ -37,7 +37,10 @@ Check [the Example file for fractal code](https://github.com/juancarlospaco/netp
 # Reference
 
 
-##### make_logger
+- The Documentation uses `ImgColor` as Example, but `ImgGrayscale` and `ImgBW` share the same functions, since they all inherit from the same internal-only `__Bitmap` Dummy Base Private Class.
+
+
+##### ImgColor
 <details>
 
 `netpbm.ImgColor(width: int, height: int, bitmap: list, bg: int=0, comment: str="")`
@@ -70,6 +73,407 @@ Check [the Example file for fractal code](https://github.com/juancarlospaco/netp
 >>> ImgColor(10, 10)
 ```
 </details>
+
+
+
+##### show
+<details>
+
+`netpbm.ImgColor.show()`
+
+**Description:** Opens Image with browser or default program, auto-converts to PNG.
+
+**Arguments:** None.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image = ImgColor(10, 10)
+>>> image.show()
+```
+</details>
+
+
+
+##### from_string
+<details>
+
+`netpbm.ImgColor.from_string(stringy: str)`
+
+**Description:** Get Bitmap data from a string.
+This first get contents as a UTF-8 string, removes all empty lines, strips the string,
+gets Header data using a Regex, which includes Height of Bitmap,
+then it slices lines from string from bottom to top according to Height, that gives the Bitmap data from the string slice,
+make all strings to integers and sets them as Bitmap, returns that Bitmap.
+
+**Arguments:**
+- `stringy` A string with a valid image file, required, string type.
+
+**Keyword Arguments:** None.
+
+**Returns:** A Bitmap, a list of lists.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.from_string(open("image.ppm").read())
+```
+</details>
+
+
+
+##### from_file
+<details>
+
+`netpbm.ImgColor.from_file(filepath: str)`
+
+**Description:** Get Bitmap data from an existent valid file path string.
+Internally is a shortcut to `netpbm.ImgColor.from_string()` that opens and reads the file.
+
+**Arguments:**
+- `filepath` A string with an existent valid image file path, required, string type.
+
+**Keyword Arguments:** None.
+
+**Returns:** A Bitmap, a list of lists.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.from_file("image.ppm")
+```
+</details>
+
+
+
+##### get_header
+<details>
+
+`netpbm.ImgColor.get_header(data_str: str)`
+
+**Description:** Get Header data using a Regex from an string.
+Sets Header. Returns Header.
+
+**Arguments:**
+- `data_str` A string with an valid image file contents, required, string type.
+
+**Keyword Arguments:** None.
+
+**Returns:** A Header, one of `P1`, `P2`, `P3`, string type.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.get_header(open("image.ppm").read())
+```
+</details>
+
+
+
+##### get_mime_type
+<details>
+
+`netpbm.ImgColor.get_mime_type()`
+
+**Description:** Get the mime type of the current image format as 'type/subtype'.
+
+**Arguments:** None.
+
+**Keyword Arguments:** None.
+
+**Returns:** A MIME Type, string type.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.get_mime_type()
+```
+</details>
+
+
+
+##### pprint
+<details>
+
+`netpbm.ImgColor.pprint()`
+
+**Description:** Pretty Print to standard output the bitmap data matrix, a list of lists, using standard libs `pprint`.
+
+**Arguments:** None.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.pprint()
+```
+</details>
+
+
+
+##### set_datetime_as_comment
+<details>
+
+`netpbm.ImgColor.set_datetime_as_comment()`
+
+**Description:** Set actual date and time UTC-aware ISO-Format as the comment.
+
+**Arguments:** None.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.set_datetime_as_comment()
+```
+</details>
+
+
+
+##### mirror_x
+<details>
+
+`netpbm.ImgColor.mirror_x()`
+
+**Description:** Mirror image Horizontally.
+
+**Arguments:** None.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.mirror_x()
+```
+</details>
+
+
+
+##### mirror_y
+<details>
+
+`netpbm.ImgColor.mirror_y()`
+
+**Description:** Mirror image Vertically.
+
+**Arguments:** None.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.mirror_y()
+```
+</details>
+
+
+
+##### crop_x
+<details>
+
+`netpbm.ImgColor.crop_x(x: int)`
+
+**Description:** Crop image Horizontally, crops from right-bottom, only can reduce size.
+
+**Arguments:**
+- `x` New Width for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.crop_x(5)
+```
+</details>
+
+
+
+##### crop_y
+<details>
+
+`netpbm.ImgColor.crop_y(y: int)`
+
+**Description:** Crop image Vertically, crops from right-bottom, only can reduce size.
+
+**Arguments:**
+- `y` New Height for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.crop_y(6)
+```
+</details>
+
+
+
+##### crop
+<details>
+
+`netpbm.ImgColor.crop(x: int, y: int)`
+
+**Description:** Crop image Horizontally and Vertically, crops from right-bottom, only can reduce size.
+Internally is a shortcut to `crop_x()` and `crop_y()`.
+
+**Arguments:**
+- `x` New Width for the Image, required, integer type.
+- `y` New Height for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.crop(6, 6)
+```
+</details>
+
+
+
 
 
 
