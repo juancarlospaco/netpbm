@@ -22,6 +22,8 @@ from webbrowser import open_new_tab
 __version__ = "0.0.1"
 __license__ = "GPLv3+ LGPLv3+"
 __author__ = "Juan Carlos"
+__url__ = "https://github.com/juancarlospaco/netpbm#netpbm"
+__email__ = "JuanCarlospaco@Gmail.com"
 __all__ = ("ImgColor", "ImgBW", "ImgGrayscale")
 
 

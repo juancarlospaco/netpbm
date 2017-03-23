@@ -5,12 +5,15 @@
 
 - No dependencies, Python 3.5+ standard libs only.
 - No Pillow, No PIL, No Numpy, No Matplotlib, No Compilation required.
-- Color, Grayscale or Black&White.
+- Color (16M Colors), Grayscale (256 Colors) or Black&White (2 Colors).
 - Object Class is Encoder and Decoder, `with` context manager support, chaining.
 - PNG Export, JSON Import/Export, Pretty-Print to Terminal, etc.
 - Useful manipulation functions, Darken, Lighten, Invert, Crop, Shrink, etc.
 - Uses simple native Python lists, No Numpy Arrays.
 - Single file.
+
+For more information on the Standard see: https://en.wikipedia.org/wiki/Netpbm_format#PPM_example
+
 
 # Examples
 
@@ -27,6 +30,8 @@
 ![Fractal](https://raw.githubusercontent.com/juancarlospaco/netpbm/master/fractalito_spiral.jpeg)
 
 ![Fractal](https://raw.githubusercontent.com/juancarlospaco/netpbm/master/fractalito_tri.jpeg)
+
+Check [the Example file for fractal code](https://github.com/juancarlospaco/netpbm/blob/master/example_fractals.py).
 
 
 # Why?
