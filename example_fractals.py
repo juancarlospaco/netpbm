@@ -1,5 +1,5 @@
 
-from make_image import ImgColor
+from netpbm import ImgColor
 from random import randint
 
 
