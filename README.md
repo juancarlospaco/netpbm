@@ -38,7 +38,7 @@ Check [the Example file for fractal code](https://github.com/juancarlospaco/netp
 
 
 - The Documentation uses `ImgColor` as Example, but `ImgGrayscale` and `ImgBW` share the same functions, since they all inherit from the same internal-only `__Bitmap` Dummy Base Private Class.
-
+- Encoding is always `utf-8` for proper Unicode support, unless explicitly stated otherwise.
 
 ##### ImgColor
 <details>
@@ -50,9 +50,9 @@ Check [the Example file for fractal code](https://github.com/juancarlospaco/netp
 **Arguments:**
 - `width` Width of Image, required, integer type.
 - `height` Height of Image, required, integer type.
-- `bitmap` A List of Lists with RGB values `[ [(R,G,B), ... ], ... ]` eg.`[ [(255,0,128), (10,0,250),], ]`, optional, a Blank image will be created if not provided, list type.
-- `bg` Default Background color, optional, a Blank Background image will be used if not provided, list type.
-- `comment` Comment for Image, optional, an Empty string comment image will be used if not provided, string type.
+- `bitmap` A List of Lists with RGB values `[ [(R,G,B), ... ], ... ]` eg.`[ [(255,0,128), (10,0,250),], ]`, basically a Matrix of Integers, optional, a Blank image will be created if not provided, list type.
+- `bg` Default Background color, optional, a Blank Background image will be used if not provided, list type for Color images, eg `[0,0,0]`, integer for Black&White and Grayscale images, eg `0`.
+- `comment` Comment for Image, optional, an Empty string will be used if not provided, string type.
 
 **Keyword Arguments:** None.
 
@@ -219,6 +219,7 @@ Sets Header. Returns Header.
 `netpbm.ImgColor.get_mime_type()`
 
 **Description:** Get the mime type of the current image format as `'type/subtype'`.
+Internally it uses Python standard libs `mimetypes.guess_type()`.
 
 **Arguments:** None.
 
@@ -250,7 +251,8 @@ Sets Header. Returns Header.
 
 `netpbm.ImgColor.pprint()`
 
-**Description:** Pretty Print to standard output the bitmap data matrix, a list of lists, using standard libs `pprint`.
+**Description:** Pretty Print to standard output the bitmap data matrix, a list of lists.
+Internally it uses Pythons standard libs `pprint.pprint()`.
 
 **Arguments:** None.
 
@@ -283,6 +285,9 @@ Sets Header. Returns Header.
 `netpbm.ImgColor.set_datetime_as_comment()`
 
 **Description:** Set actual date and time UTC-aware ISO-Format as the comment.
+eg. `'2017-03-24 07:49:57-03:00'`.
+Internally is shortcut to `datetime.datetime.now(datetime.timezone.utc).replace(
+    microsecond=0).astimezone().isoformat(" ")`.
 
 **Arguments:** None.
 
@@ -379,6 +384,7 @@ Sets Header. Returns Header.
 `netpbm.ImgColor.crop_x(x: int)`
 
 **Description:** Crop image Horizontally, crops from right-bottom, only can reduce size.
+This can not resize the contents, only crops the canvas.
 
 **Arguments:**
 - `x` New Width for the Image, required, integer type.
@@ -412,6 +418,7 @@ Sets Header. Returns Header.
 `netpbm.ImgColor.crop_y(y: int)`
 
 **Description:** Crop image Vertically, crops from right-bottom, only can reduce size.
+This can not resize the contents, only crops the canvas.
 
 **Arguments:**
 - `y` New Height for the Image, required, integer type.
@@ -445,6 +452,7 @@ Sets Header. Returns Header.
 `netpbm.ImgColor.crop(x: int, y: int)`
 
 **Description:** Crop image Horizontally and Vertically, crops from right-bottom, only can reduce size.
+This can not resize the contents, only crops the canvas.
 Internally is a shortcut to `crop_x()` and `crop_y()`.
 
 **Arguments:**
@@ -480,6 +488,7 @@ Internally is a shortcut to `crop_x()` and `crop_y()`.
 `netpbm.ImgColor.crop_centered_x(x: int)`
 
 **Description:** Centered Crop image Horizontally, crops from borders instead of from bottom-right, can  only reduce size.
+This can not resize the contents, only crops the canvas.
 
 **Arguments:**
 - `x` New Width for the Image, required, integer type.
@@ -513,6 +522,7 @@ Internally is a shortcut to `crop_x()` and `crop_y()`.
 `netpbm.ImgColor.crop_centered_y(y: int)`
 
 **Description:** Centered Crop image Vertically, crops from borders instead of from bottom-right, can  only reduce size.
+This can not resize the contents, only crops the canvas.
 
 **Arguments:**
 - `y` New Height for the Image, required, integer type.
@@ -546,6 +556,7 @@ Internally is a shortcut to `crop_x()` and `crop_y()`.
 `netpbm.ImgColor.crop_centered(x: int, y: int)`
 
 **Description:** Centered Crop image Horizontally and Vertically, crops from borders instead of from bottom-right, can  only reduce size.
+This can not resize the contents, only crops the canvas.
 
 **Arguments:**
 - `x` New Width for the Image, required, integer type.
@@ -580,7 +591,7 @@ Internally is a shortcut to `crop_x()` and `crop_y()`.
 `netpbm.ImgColor.expand_x(x: int)`
 
 **Description:** Expand image Horizontally, grow from right-bottom, increments size.
-It only resizes the canvas.
+This can not resize the contents, only expands the canvas.
 
 **Arguments:**
 - `x` New Width for the Image, required, integer type.
@@ -615,6 +626,7 @@ It only resizes the canvas.
 
 **Description:** Expand image Vertically, grow from right-bottom, increments size.
 It only resizes the canvas.
+This can not resize the contents, only expands the canvas.
 
 **Arguments:**
 - `y` New Height for the Image, required, integer type.
@@ -649,7 +661,7 @@ It only resizes the canvas.
 
 **Description:** Expand image Horizontally and Vertically, grow from right-bottom, increments size.
 Internally is shortcut to `expand_x()` and `expand_y()`.
-It only resizes the canvas.
+This can not resize the contents, only expands the canvas.
 
 **Arguments:**
 - `x` New Width for the Image, required, integer type.
@@ -684,7 +696,7 @@ It only resizes the canvas.
 `netpbm.ImgColor.expand_centered_x(x: int)`
 
 **Description:** Expand image centered Horizontally, grow from right-bottom, increments size.
-It only resizes the canvas.
+This can not resize the contents, only expands the canvas.
 
 **Arguments:**
 - `x` New Width for the Image, required, integer type.
@@ -718,7 +730,7 @@ It only resizes the canvas.
 `netpbm.ImgColor.expand_centered_y(y: int)`
 
 **Description:** Expand image Centered Vertically, grow from right-bottom, increments size.
-It only resizes the canvas.
+This can not resize the contents, only expands the canvas.
 
 **Arguments:**
 - `y` New Height for the Image, required, integer type.
@@ -751,7 +763,7 @@ It only resizes the canvas.
 
 `netpbm.ImgColor.expand_centered(x: int, y: int)`
 
-**Description:** Expand image Centered Horizontally and Vertically, grow from right-bottom, increments size. It only resizes the canvas.
+**Description:** Expand image Centered Horizontally and Vertically, grow from right-bottom, increments size. This can not resize the contents, only expands the canvas.
 Internally is shortcut to `expand_centered_x()` and `expand_centered_y()`.
 
 **Arguments:**
@@ -787,7 +799,7 @@ Internally is shortcut to `expand_centered_x()` and `expand_centered_y()`.
 `netpbm.ImgColor.shrink_x(x: int)`
 
 **Description:** Shrink image horizontally.
-It resizes the Bitmap itself AND the canvas too. Can only reduce size.
+It resizes the Bitmap contents itself AND resizes the canvas too. Can only reduce sizes.
 
 **Arguments:**
 - `x` New Width for the Image, required, integer type.
@@ -821,7 +833,7 @@ It resizes the Bitmap itself AND the canvas too. Can only reduce size.
 `netpbm.ImgColor.shrink_y(y: int)`
 
 **Description:** Shrink image vertically.
-It resizes the Bitmap itself AND the canvas too. Can only reduce size.
+It resizes the Bitmap contents itself AND resizes the canvas too. Can only reduce sizes.
 
 **Arguments:**
 - `y` New Height for the Image, required, integer type.
@@ -855,7 +867,7 @@ It resizes the Bitmap itself AND the canvas too. Can only reduce size.
 `netpbm.ImgColor.shrink(x: int, y: int)`
 
 **Description:** Shrink image horizontally and vertically.
-It resizes the Bitmap itself AND the canvas too. Can only reduce size.
+It resizes the Bitmap contents itself AND resizes the canvas too. Can only reduce sizes.
 Internally is shortcut to `shrink_x()` and `shrink_y()`.
 
 **Arguments:**
@@ -1262,8 +1274,8 @@ This uses `pnm2png` executable command line program of the system.
 | State              | OS          | Description |
 | ------------------ |:-----------:| -----------:|
 | :white_check_mark: | **Linux**   | Works Ok    |
-| :white_check_mark: | **Os X**    | Works Ok    |
-| :white_check_mark: | **Windows** | Works Ok    |
+| :question_mark:    | **Os X**    | Unknown     |
+| :question_mark:    | **Windows** | Unknown     |
 
 **Usage Example:**
 
@@ -1415,7 +1427,7 @@ Inverts all pixels of the Image with the opposite color of pixels.
 ```
 </details>
 
-- The Class has `__enter__()`, `__exit__()` and `__str__()` magic methods.
+- The Class has `__enter__()`, `__exit__()` and `__str__()` magic methods. Has `with` context manager and chaining support.
 
 
 # Why?
