@@ -1420,6 +1420,7 @@ Inverts all pixels of the Image with the opposite color of pixels.
 
 # Why?
 
-I cant find anything simple on pure Python without dependencies to make an image:
+I cant find anything simple on pure Python without dependencies to make an image with a simple matrix of integers:
 - https://github.com/search?l=Python&q=netpbm&type=Repositories&utf8=%E2%9C%93
 - https://pypi.python.org/pypi?%3Aaction=search&term=netpbm&submit=search
+- Because I can.
