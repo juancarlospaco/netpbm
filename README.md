@@ -580,6 +580,7 @@ Internally is a shortcut to `crop_x()` and `crop_y()`.
 `netpbm.ImgColor.expand_x(x: int)`
 
 **Description:** Expand image Horizontally, grow from right-bottom, increments size.
+It only resizes the canvas.
 
 **Arguments:**
 - `x` New Width for the Image, required, integer type.
@@ -613,6 +614,7 @@ Internally is a shortcut to `crop_x()` and `crop_y()`.
 `netpbm.ImgColor.expand_y(y: int)`
 
 **Description:** Expand image Vertically, grow from right-bottom, increments size.
+It only resizes the canvas.
 
 **Arguments:**
 - `y` New Height for the Image, required, integer type.
@@ -647,6 +649,7 @@ Internally is a shortcut to `crop_x()` and `crop_y()`.
 
 **Description:** Expand image Horizontally and Vertically, grow from right-bottom, increments size.
 Internally is shortcut to `expand_x()` and `expand_y()`.
+It only resizes the canvas.
 
 **Arguments:**
 - `x` New Width for the Image, required, integer type.
@@ -681,6 +684,7 @@ Internally is shortcut to `expand_x()` and `expand_y()`.
 `netpbm.ImgColor.expand_centered_x(x: int)`
 
 **Description:** Expand image centered Horizontally, grow from right-bottom, increments size.
+It only resizes the canvas.
 
 **Arguments:**
 - `x` New Width for the Image, required, integer type.
@@ -714,6 +718,7 @@ Internally is shortcut to `expand_x()` and `expand_y()`.
 `netpbm.ImgColor.expand_centered_y(y: int)`
 
 **Description:** Expand image Centered Vertically, grow from right-bottom, increments size.
+It only resizes the canvas.
 
 **Arguments:**
 - `y` New Height for the Image, required, integer type.
@@ -746,7 +751,7 @@ Internally is shortcut to `expand_x()` and `expand_y()`.
 
 `netpbm.ImgColor.expand_centered(x: int, y: int)`
 
-**Description:** Expand image Centered Horizontally and Vertically, grow from right-bottom, increments size.
+**Description:** Expand image Centered Horizontally and Vertically, grow from right-bottom, increments size. It only resizes the canvas.
 Internally is shortcut to `expand_centered_x()` and `expand_centered_y()`.
 
 **Arguments:**
@@ -776,14 +781,641 @@ Internally is shortcut to `expand_centered_x()` and `expand_centered_y()`.
 
 
 
+##### shrink_x
+<details>
+
+`netpbm.ImgColor.shrink_x(x: int)`
+
+**Description:** Shrink image horizontally.
+It resizes the Bitmap itself AND the canvas too. Can only reduce size.
+
+**Arguments:**
+- `x` New Width for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.shrink_x(6)
+```
+</details>
 
 
 
+##### shrink_y
+<details>
+
+`netpbm.ImgColor.shrink_y(y: int)`
+
+**Description:** Shrink image vertically.
+It resizes the Bitmap itself AND the canvas too. Can only reduce size.
+
+**Arguments:**
+- `y` New Height for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.shrink_y(6)
+```
+</details>
 
 
 
+##### shrink
+<details>
+
+`netpbm.ImgColor.shrink(x: int, y: int)`
+
+**Description:** Shrink image horizontally and vertically.
+It resizes the Bitmap itself AND the canvas too. Can only reduce size.
+Internally is shortcut to `shrink_x()` and `shrink_y()`.
+
+**Arguments:**
+- `x` New Width for the Image, required, integer type.
+- `y` New Height for the Image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.shrink(8, 6)
+```
+</details>
 
 
+
+##### lighten
+<details>
+
+`netpbm.ImgColor.lighten(amount: int)`
+
+**Description:** Lighten the image according to amount argument.
+Do nothing on Black&White images.
+Lets imagine your Pixel RGB is `(0, 128, 255)` you set `amount` to `10`,
+then it will add `10` to each integer, always on valid limits of `0` or `255`,
+then your RGB is `(10, 138, 255)`.
+
+**Arguments:**
+- `amount` The amount of lightening to apply to the image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.lighten(2)
+```
+</details>
+
+
+
+##### darken
+<details>
+
+`netpbm.ImgColor.darken(amount: int)`
+
+**Description:** Darken the image according to amount argument.
+Do nothing on Black&White images.
+Lets imagine your Pixel RGB is `(0, 128, 255)` you set `amount` to `10`,
+then it will substract `10` to each integer, always on valid limits of `0` or `255`,
+then your RGB is `(0, 118, 245)`.
+
+**Arguments:**
+- `amount` The amount of darkening to apply to the image, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.darken(2)
+```
+</details>
+
+
+
+##### fillrect
+<details>
+
+`netpbm.ImgColor.fillrect( x: int, y: int, width: int, height: int, color: list=None)`
+
+**Description:** Fill up a rectangle or square on the image with given color.
+If no `color` provided then default background color will be used.
+
+**Arguments:**
+- `x` Position on the horizontal X axis on the canvas, required, integer type.
+- `y` Position on the vertical Y axis on the canvas, required, integer type.
+- `width` Width of the rectangle or square, required, integer type.
+- `height` Height of the rectangle or square, required, integer type.
+- `color` Color of the rectangle or square, optional,
+default background color will be used if not provided, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.fillrect(2, 2, 4, 4, [128, 128, 128])
+```
+</details>
+
+
+
+##### fillrect_stripe_x
+<details>
+
+`netpbm.ImgColor.fillrect_stripe_x( x: int, y: int, width: int, height: int, color0: list, color1: list, stroke: int)`
+
+**Description:** Fill up a rectangle or square on the image with given colors
+using an stripped horizontal pattern of lines of given stroke thickness.
+Requires 2 colors for the stripped pattern.
+
+**Arguments:**
+- `x` Position on the horizontal X axis on the canvas, required, integer type.
+- `y` Position on the vertical Y axis on the canvas, required, integer type.
+- `width` Width of the rectangle or square, required, integer type.
+- `height` Height of the rectangle or square, required, integer type.
+- `color0` Color of the rectangle or square, required, integer type.
+- `color1` Color of the rectangle or square, required, integer type.
+- `stroke` Stroke of thickness of the stripped pattern lines, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.fillrect_stripe_x(2, 2, 4, 4, [128, 128, 128], [99, 99, 99], 2)
+```
+</details>
+
+
+
+##### fillrect_stripe_y
+<details>
+
+`netpbm.ImgColor.fillrect_stripe_y( x: int, y: int, width: int, height: int, color0: list, color1: list, stroke: int)`
+
+**Description:** Fill up a rectangle or square on the image with given colors
+using an stripped vertical pattern of lines of given stroke thickness.
+Requires 2 colors for the stripped pattern.
+
+**Arguments:**
+- `x` Position on the horizontal X axis on the canvas, required, integer type.
+- `y` Position on the vertical Y axis on the canvas, required, integer type.
+- `width` Width of the rectangle or square, required, integer type.
+- `height` Height of the rectangle or square, required, integer type.
+- `color0` Color of the rectangle or square, required, integer type.
+- `color1` Color of the rectangle or square, required, integer type.
+- `stroke` Stroke of thickness of the stripped pattern lines, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.fillrect_stripe_y(2, 2, 4, 4, [128, 128, 128], [99, 99, 99], 2)
+```
+</details>
+
+
+
+##### fillrect_grid
+<details>
+
+`netpbm.ImgColor.fillrect_grid( x: int, y: int, width: int, height: int, color0: list, color1: list, stroke: int)`
+
+**Description:** Fill up a rectangle or square on the image with given colors
+using a Grid pattern of horizontal and vertical lines of given stroke thickness.
+Requires 2 colors for the grid pattern.
+
+**Arguments:**
+- `x` Position on the horizontal X axis on the canvas, required, integer type.
+- `y` Position on the vertical Y axis on the canvas, required, integer type.
+- `width` Width of the rectangle or square, required, integer type.
+- `height` Height of the rectangle or square, required, integer type.
+- `color0` Color of the rectangle or square, required, integer type.
+- `color1` Color of the rectangle or square, required, integer type.
+- `stroke` Stroke of thickness of the grid pattern lines, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.fillrect_grid(2, 2, 4, 4, [128, 128, 128], [99, 99, 99], 2)
+```
+</details>
+
+
+
+##### fillrect_dotted
+<details>
+
+`netpbm.ImgColor.fillrect_dotted( x: int, y: int, width: int, height: int, color0: list, color1: list, stroke: int)`
+
+**Description:** Fill up a rectangle or square on the image with given colors
+using a Dotted pattern of horizontal and vertical Dots of given stroke thickness.
+Requires 2 colors for the Dotted pattern.
+
+**Arguments:**
+- `x` Position on the horizontal X axis on the canvas, required, integer type.
+- `y` Position on the vertical Y axis on the canvas, required, integer type.
+- `width` Width of the rectangle or square, required, integer type.
+- `height` Height of the rectangle or square, required, integer type.
+- `color0` Color of the rectangle or square, required, integer type.
+- `color1` Color of the rectangle or square, required, integer type.
+- `stroke` Stroke of thickness of the Dot pattern, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.fillrect_dotted(2, 2, 4, 4, [128, 128, 128], [99, 99, 99], 2)
+```
+</details>
+
+
+
+##### fillrect_random
+<details>
+
+`netpbm.ImgColor.fillrect_random( x: int, y: int, width: int, height: int)`
+
+**Description:** Fill up a rectangle or square on the image with Random colors
+using a Random pattern of Random Pixels.
+
+**Arguments:**
+- `x` Position on the horizontal X axis on the canvas, required, integer type.
+- `y` Position on the vertical Y axis on the canvas, required, integer type.
+- `width` Width of the rectangle or square, required, integer type.
+- `height` Height of the rectangle or square, required, integer type.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.fillrect_random(2, 2, 4, 4)
+```
+</details>
+
+
+
+##### to_file
+<details>
+
+`netpbm.ImgColor.to_file(fyle: str)`
+
+**Description:** Write everything to a file.
+Write the full contents of the actual current Image instance to a local file full path string of proper format and extension.
+File extension will be added automatically if file extension is not provided.
+File extension will be added automatically if file extension is not correct.
+File extension for Black&White images is `*.pbm`.
+File extension for Grayscale images is `*.ppm`.
+File extension for Color images is `*.pgm`.
+
+**Arguments:**
+- `fyle` local file path string of proper format and extension.
+
+**Keyword Arguments:** None.
+
+**Returns:** Local file path string of new file created.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.to_file("my_image_file")
+```
+</details>
+
+
+
+##### to_png
+<details>
+
+`netpbm.ImgColor.to_png(fyle: str)`
+
+**Description:** Write everything to a PNG file.
+Write the full contents of the actual current Image instance to a local file full path string of `*.PNG` format and extension.
+File extension will be added automatically if file extension is not provided.
+File extension will be added automatically if file extension is not correct.
+This uses `pnm2png` executable command line program of the system.
+`pnm2png` executable must be working Ok on the system.
+
+**Arguments:**
+- `fyle` local file path string of `*.PNG` file extension.
+
+**Keyword Arguments:** None.
+
+**Returns:** Local file path string of new `*.PNG` file created.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.to_png("my_png_image_file")
+```
+</details>
+
+
+
+##### to_json
+<details>
+
+`netpbm.ImgColor.to_json(fyle: str=None)`
+
+**Description:** Write everything to a JSON string, file or standard output.
+Write the full contents of the actual current Image instance to a local JSON file full path string of `*.json` file extension.
+File extension will be added automatically if file extension is not provided.
+File extension will be added automatically if file extension is not correct.
+If `fyle` is not provided then it will return the JSON. This serializes data to JSON.
+
+**Arguments:**
+- `fyle` local file path string of `*.json` file extension.
+If not provided then it will return the JSON.
+
+**Keyword Arguments:** None.
+
+**Returns:** Local file path string of new `*.json` file created or the JSON string itself.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.to_json("my_json_file")
+```
+</details>
+
+
+
+##### from_json
+<details>
+
+`netpbm.ImgColor.from_json(file_or_json: str=None)`
+
+**Description:** Reads everything from a JSON file or string.
+Reads the full contents for the actual Image instance from a local JSON file full path string of `*.json` file extension or JSON string itself.
+File extension must be provided. File extension will Not be added automatically.
+If `file_or_json` is a string with the JSON then it will be used directly as Image data.
+This deserializes data from JSON.
+
+**Arguments:**
+- `file_or_json` local file path string of `*.json` file or JSON string.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.from_json("my_json_file.json")
+```
+</details>
+
+
+
+##### set_random_bitmap
+<details>
+
+`netpbm.ImgColor.set_random_bitmap()`
+
+**Description:** Makes a Random bitmap image.
+Fills up all pixels of the Image with Random pixels.
+
+**Arguments:** None.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.set_random_bitmap()
+```
+</details>
+
+
+
+##### invert_colors
+<details>
+
+`netpbm.ImgColor.invert_colors()`
+
+**Description:** Inverts the image colors.
+Inverts all pixels of the Image with the opposite color of pixels.
+
+**Arguments:** None.
+
+**Keyword Arguments:** None.
+
+**Returns:** None.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/netpbm.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from netpbm import ImgColor
+>>> image= ImgColor(10, 10)
+>>> image.invert_colors()
+```
+</details>
+
+- The Class has `__enter__()`, `__exit__()` and `__str__()` magic methods.
 
 
 # Why?
