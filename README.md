@@ -985,7 +985,7 @@ If no `color` provided then default background color will be used.
 - `width` Width of the rectangle or square, required, integer type.
 - `height` Height of the rectangle or square, required, integer type.
 - `color` Color of the rectangle or square, optional,
-default background color will be used if not provided, integer type.
+default background color will be used if not provided, list type for Color images, eg `[0,0,0]`, integer for Black&White and Grayscale images, eg `0`..
 
 **Keyword Arguments:** None.
 
@@ -1024,8 +1024,8 @@ Requires 2 colors for the stripped pattern.
 - `y` Position on the vertical Y axis on the canvas, required, integer type.
 - `width` Width of the rectangle or square, required, integer type.
 - `height` Height of the rectangle or square, required, integer type.
-- `color0` Color of the rectangle or square, required, integer type.
-- `color1` Color of the rectangle or square, required, integer type.
+- `color0` Color of the rectangle or square, required, list type for Color images, eg `[0,0,0]`, integer for Black&White and Grayscale images, eg `0`..
+- `color1` Color of the rectangle or square, required, list type for Color images, eg `[0,0,0]`, integer for Black&White and Grayscale images, eg `0`..
 - `stroke` Stroke of thickness of the stripped pattern lines, required, integer type.
 
 **Keyword Arguments:** None.
@@ -1065,8 +1065,8 @@ Requires 2 colors for the stripped pattern.
 - `y` Position on the vertical Y axis on the canvas, required, integer type.
 - `width` Width of the rectangle or square, required, integer type.
 - `height` Height of the rectangle or square, required, integer type.
-- `color0` Color of the rectangle or square, required, integer type.
-- `color1` Color of the rectangle or square, required, integer type.
+- `color0` Color of the rectangle or square, required, list type for Color images, eg `[0,0,0]`, integer for Black&White and Grayscale images, eg `0`..
+- `color1` Color of the rectangle or square, required, list type for Color images, eg `[0,0,0]`, integer for Black&White and Grayscale images, eg `0`..
 - `stroke` Stroke of thickness of the stripped pattern lines, required, integer type.
 
 **Keyword Arguments:** None.
@@ -1106,8 +1106,8 @@ Requires 2 colors for the grid pattern.
 - `y` Position on the vertical Y axis on the canvas, required, integer type.
 - `width` Width of the rectangle or square, required, integer type.
 - `height` Height of the rectangle or square, required, integer type.
-- `color0` Color of the rectangle or square, required, integer type.
-- `color1` Color of the rectangle or square, required, integer type.
+- `color0` Color of the rectangle or square, required, list type for Color images, eg `[0,0,0]`, integer for Black&White and Grayscale images, eg `0`..
+- `color1` Color of the rectangle or square, required, list type for Color images, eg `[0,0,0]`, integer for Black&White and Grayscale images, eg `0`..
 - `stroke` Stroke of thickness of the grid pattern lines, required, integer type.
 
 **Keyword Arguments:** None.
@@ -1147,8 +1147,8 @@ Requires 2 colors for the Dotted pattern.
 - `y` Position on the vertical Y axis on the canvas, required, integer type.
 - `width` Width of the rectangle or square, required, integer type.
 - `height` Height of the rectangle or square, required, integer type.
-- `color0` Color of the rectangle or square, required, integer type.
-- `color1` Color of the rectangle or square, required, integer type.
+- `color0` Color of the rectangle or square, required, list type for Color images, eg `[0,0,0]`, integer for Black&White and Grayscale images, eg `0`..
+- `color1` Color of the rectangle or square, required, list type for Color images, eg `[0,0,0]`, integer for Black&White and Grayscale images, eg `0`..
 - `stroke` Stroke of thickness of the Dot pattern, required, integer type.
 
 **Keyword Arguments:** None.
