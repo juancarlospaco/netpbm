@@ -1454,4 +1454,10 @@ I cant find anything simple on pure Python without dependencies to make an image
 
 # Licence:
 
-- GNU GPL Latest Version *AND* GNU LGPL Latest Version *AND* any Licence [YOU Request via Bug Report](https://github.com/juancarlospaco/css-html-js-minify/issues/new).
+- GNU GPL Latest Version *AND* GNU LGPL Latest Version *AND* any Licence YOU Request via Bug Report.
+
+
+# Ethics and Humanism Policy:
+
+- Politics and Religions is not allowed.
+- This project has Feminism Ally conduct.
