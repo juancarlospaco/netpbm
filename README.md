@@ -3,6 +3,10 @@
 
 **NetPBM Raster Bitmap Pure Python 3.**
 
+[![GPL License](http://img.shields.io/badge/license-GPL-blue.svg)](http://opensource.org/licenses/GPL-3.0)
+[![LGPL License](http://img.shields.io/badge/license-LGPL-blue.svg)](http://opensource.org/licenses/LGPL-3.0)
+[![Python Version](https://img.shields.io/badge/Python-3-brightgreen.svg)](http://python.org)
+
 - No dependencies, Python 3.5+ standard libs only.
 - No Pillow, No PIL, No Numpy, No Matplotlib, No Compilation required.
 - Color (16M Colors), Grayscale (256 Colors) or Black&White (2 Colors).
@@ -1430,9 +1434,24 @@ Inverts all pixels of the Image with the opposite color of pixels.
 - The Class has `__enter__()`, `__exit__()` and `__str__()` magic methods. Has `with` context manager and chaining support.
 
 
+# Requisites:
+
+- [Python 3.5+](https://www.python.org "Python Homepage")
+
+
+# Coding Style Guide:
+
+- Lint, [PEP-8](https://www.python.org/dev/peps/pep-0008), [PEP-257](https://www.python.org/dev/peps/pep-0257), [PyLama](https://github.com/klen/pylama#-pylama), [iSort](https://github.com/timothycrosley/isort) must Pass Ok. `pip install --upgrade pep8 pep257 pylama isort pytest`
+
+
 # Why?
 
 I cant find anything simple on pure Python without dependencies to make an image with a simple matrix of integers:
 - https://github.com/search?l=Python&q=netpbm&type=Repositories&utf8=%E2%9C%93
 - https://pypi.python.org/pypi?%3Aaction=search&term=netpbm&submit=search
 - Because I can.
+
+
+# Licence:
+
+- GNU GPL Latest Version *AND* GNU LGPL Latest Version *AND* any Licence [YOU Request via Bug Report](https://github.com/juancarlospaco/css-html-js-minify/issues/new).
