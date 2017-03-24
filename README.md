@@ -1274,8 +1274,8 @@ This uses `pnm2png` executable command line program of the system.
 | State              | OS          | Description |
 | ------------------ |:-----------:| -----------:|
 | :white_check_mark: | **Linux**   | Works Ok    |
-| :question_mark:    | **Os X**    | Unknown     |
-| :question_mark:    | **Windows** | Unknown     |
+| :question:         | **Os X**    | Unknown     |
+| :question:         | **Windows** | Unknown     |
 
 **Usage Example:**
 
