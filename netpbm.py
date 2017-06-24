@@ -12,6 +12,7 @@ import re
 from json import dumps, loads
 from mimetypes import guess_type
 from pprint import pprint
+from pathlib import Path
 from random import randint
 from shutil import which
 from subprocess import run
@@ -19,7 +20,7 @@ from tempfile import NamedTemporaryFile
 from webbrowser import open_new_tab
 
 
-__version__ = "0.0.1"
+__version__ = "0.1.0"
 __license__ = "GPLv3+ LGPLv3+"
 __author__ = "Juan Carlos"
 __url__ = "https://github.com/juancarlospaco/netpbm#netpbm"
@@ -86,9 +87,9 @@ class __Bitmap(object):
 
     def from_file(self, filepath):
         """Get data from a file path string,this sets bitmap,header,etc."""
-        if os.path.isfile(filepath):
-            with open(filepath, encoding="utf-8") as _file:
-                self.from_string(_file.read())
+        filepath = Path(filepath)
+        if filepath.is_file():
+            self.from_string(filepath.read_text(encoding="utf-8"))
             return self.map
 
     def get_header(self, data_str):
@@ -362,10 +363,9 @@ class __Bitmap(object):
 
     def to_file(self, fyle):
         """Write the full image content to a local file path."""
-        fyle = fyle if fyle.lower().endswith(self.ext) else fyle + self.ext
-        with open(fyle, "w", encoding="utf-8") as img_file:
-            img_file.write(self.__str__().strip())
-        return fyle
+        fl = Path(fyle if fyle.lower().endswith(self.ext) else fyle + self.ext)
+        fl.write_text(self.__str__().strip(), encoding="utf-8")
+        return fl.as_posix()
 
     def to_png(self, fyle):
         """Write the full image content to a local *.PNG file path."""
@@ -382,8 +382,8 @@ class __Bitmap(object):
                    "maxvalue": self.maxvalue, "bitmap": self.map}
         if fyle:  # if file then write to file
             fyle = fyle if fyle.lower().endswith(".json") else fyle + ".json"
-            with open(fyle, "w", encoding="utf-8") as _file:
-                _file.write(dumps(jotason, sort_keys=1, indent=4))
+            Path(fyle).write_text(
+                dumps(jotason, sort_keys=1, indent=4), encoding="utf-8")
             return fyle
         else:  # if no file then return str
             return dumps(jotason, sort_keys=1, indent=4)
@@ -391,8 +391,7 @@ class __Bitmap(object):
     def from_json(self, file_or_json):
         """Return all values from argument JSON string or JSON file path."""
         if os.path.isfile(file_or_json):  # is file
-            with open(file_or_json, encoding="utf-8") as _file:
-                json_data = loads(_file.read())
+            json_data = loads(Path(file_or_json).read_text(encoding="utf-8"))
         else:  # is a string with json data
             json_data = loads(file_or_json)
         self.header, self.comment = json_data["header"], json_data["comment"]
